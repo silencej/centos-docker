@@ -7,3 +7,5 @@ RUN yum install -y ansible git224 yum-utils device-mapper-persistent-data lvm2 d
   export compose_version=$(curl -N -s https://github.com/docker/compose/tags | grep -E "/docker/compose/releases/tag/([\.0-9]*)\"" -m 1 -o |  cut -d/ -f 6 | cut -d\" -f 1) ; \
   curl -L https://get.daocloud.io/docker/compose/releases/download/${compose_version}/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose ; \
   chmod +x /usr/local/bin/docker-compose
+RUN useradd -G wheel,docker devops ; echo test | passwd --stdin devops
+
