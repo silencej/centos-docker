@@ -16,7 +16,7 @@ pipeline {
       steps {
         echo env.BRANCH_NAME
         echo env.WORKSPACE
-        sh "/kaniko/executor --skip-unused-stages --context ${env.WORKSPACE} --dockerfile Dockerfile --destination registry2.efilmcloud.com/library/centos7-docker:${env.BRANCH_NAME} --cache=true --cache-ttl=240h --verbosity=info"
+        sh "/kaniko/executor --skip-unused-stages --context ${env.WORKSPACE} --dockerfile Dockerfile --destination registry2.efilmcloud.com/library/centos-docker:${env.BRANCH_NAME} --cache=true --cache-ttl=240h --verbosity=info"
       }
     }
   }
