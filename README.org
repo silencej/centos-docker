@@ -1,0 +1,9 @@
+
+Run with:
+
+#+BEGIN_SRC bash
+docker run --name centos --privileged -dti -e container=docker -v /sys/fs/cgroup:/sys/fs/cgroup -p 50022:22 centos-docker
+
+docker exec centos systemctl start sshd
+docker exec centos systemctl enable sshd
+#+END_SRC
